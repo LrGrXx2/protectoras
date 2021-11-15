@@ -4,10 +4,12 @@ from django.db.models.base import Model
 # Create your models here.
 class Protectora(models.Model):
     nombre_protectora = models.CharField("Nombre protectora", max_length = 200)
-    localizacion = models.CharField("Localizacion", max_length = 200, blank = True)
+    direccion = models.CharField("Dirección", max_length = 200, blank = True)
+    ciudad = models.CharField("Ciudad", max_length = 200, blank = True)
+    coordenadas = models.CharField("Coordenadas", max_length = 500, blank = True)
 
     def __str__(self):
-        return f'{self.nombre_protectora}'
+        return f'{self.nombre_protectora} {self.ciudad} {self.direccion}'
 
     class Meta:
         verbose_name = 'Protectora'
@@ -18,7 +20,7 @@ class Protectora(models.Model):
 class Animal(models.Model):
     especie = models.CharField("Especia", max_length = 200)
     nombre_raza = models.CharField("Raza", max_length = 200)
-    descripcion = models.CharField("Descripción", max_length = 200, blank = True)
+    descripcion_animal = models.CharField("Descripción general", max_length = 500, blank = True)
 
     def __str__(self):
         return f'{self.especie} {self.nombre_raza}'
@@ -32,6 +34,7 @@ class Animal(models.Model):
 class Rescate(models.Model):
     nombre_animal = models.CharField("Nombre animal", max_length = 200)
     adoptado = models.CharField("En adopción", max_length = 200)
+    descripcion_rescate = models.CharField("Descripción de este animal", max_length = 500, blank = True)
 
     # Relaciones
     nombre_protectora = models.ForeignKey('Protectora', on_delete = models.SET_NULL, null = True)
