@@ -68,7 +68,7 @@ def crear_rescate(request):
         form = RescateForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, 'Resacte creado correctamente')
+            messages.add_message(request, messages.SUCCESS, 'Rescate creado correctamente')
             return redirect('/')
     else:
         form = RescateForm()

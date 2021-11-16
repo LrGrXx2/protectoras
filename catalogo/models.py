@@ -9,7 +9,7 @@ class Protectora(models.Model):
     coordenadas = models.CharField("Coordenadas", max_length = 500, blank = True)
 
     def __str__(self):
-        return f'{self.nombre_protectora} {self.ciudad} {self.direccion}'
+        return f'{self.nombre_protectora} ({self.ciudad}, {self.direccion})'
 
     class Meta:
         verbose_name = 'Protectora'
@@ -31,15 +31,16 @@ class Animal(models.Model):
         
 #-------------------------------------------------------------------------
 
+BOOL_CHOICES = ((True, 'Si'), (False, 'No'))
+
 class Rescate(models.Model):
     nombre_animal = models.CharField("Nombre animal", max_length = 200)
-    adoptado = models.CharField("En adopción", max_length = 200)
+    adoptado = models.BooleanField("En adopción", choices=BOOL_CHOICES)
     descripcion_rescate = models.CharField("Descripción de este animal", max_length = 500, blank = True)
 
     # Relaciones
     nombre_protectora = models.ForeignKey('Protectora', on_delete = models.SET_NULL, null = True)
     especie = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True, related_name='Especie del animal+')
-    nombre_raza = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True, related_name='Raza del animal+')
 
     def __str__(self):
         return f'{self.nombre_animal} {self.last_name}'
@@ -48,4 +49,3 @@ class Rescate(models.Model):
         verbose_name = 'Rescate'
         verbose_name_plural = 'Rescates'
 
-        
