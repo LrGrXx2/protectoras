@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Mi superProtectora {% endblock %}
+{% block title %}Protectora+ LauraGarcia {% endblock %}
 
 {% block content %}
 <center><h1>Índice del catálogo de datos</h1></center>
@@ -32,7 +32,7 @@
       <label for="email-address">Correo electrónico: </label>
       <input type="email" name="_replyto" id="email-address" placeholder="alfonsofm@gmail.com" required="">
       <br>
-      <label for="message">Observación/es: </label>
+      <label for="message">Observación/es o dudas: </label>
       <textarea rows="1" name="message" id="message" placeholder="Escriba aquí." required=""></textarea>
       <br>
       <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission"
@@ -42,7 +42,7 @@
   </form>
   <hr>
   <h2 class="mt-4">Buscar rescate/s</h2>
-  <form class="form-inline mt-2 mt-md-0" action="{% url 'buscalibros' %}" method="get">
+  <form class="form-inline mt-2 mt-md-0" action="{% url 'buscarescates' %}" method="get">
     <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
   </form>
   {% if noencontrado %}

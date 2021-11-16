@@ -1,21 +1,13 @@
-"""protectoras URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
+from catalogo.views import RescatesListView, SearchResultsListView, crear_animal, crear_protectora, crear_rescate
+from catalogo.views import todas_protectoras, todos_animales, todos_rescates
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('protectoras/', todas_protectoras, name='listado_protectoras'),
+    path('animales/', todos_animales, name='listado_animales'),
+    path('rescates/', todos_rescates, name='listado_rescates'),
+    path('buscarescates/', SearchResultsListView.as_view(), name='buscarescates'),
+    path('protectora/crear', crear_protectora, name='crear_protectora'),
+    path('animal/crear', crear_animal, name='crear_animal'),
+    path('rescate/crear', crear_rescate, name='crear_rescate'),
 ]

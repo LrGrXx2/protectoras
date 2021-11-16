@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de rescates{% endblock %}
+
+{% block content %}
+    <h1>Catálogo de la protectora</h1>
+    
+    <ul>
+    {% for rescate in rescates %}
+        <li>{{rescate.nombre_animal}} {{rescate.especie}} {{rescate.nombre_raza}} {{rescate.nombre_protectora}}
+    {% endfor %}
+    </ul>
+
+{% endblock %}

@@ -18,7 +18,7 @@ class Protectora(models.Model):
 #-------------------------------------------------------------------------
 
 class Animal(models.Model):
-    especie = models.CharField("Especia", max_length = 200)
+    especie = models.CharField("Especie", max_length = 200)
     nombre_raza = models.CharField("Raza", max_length = 200)
     descripcion_animal = models.CharField("Descripción general", max_length = 500, blank = True)
 
@@ -38,8 +38,8 @@ class Rescate(models.Model):
 
     # Relaciones
     nombre_protectora = models.ForeignKey('Protectora', on_delete = models.SET_NULL, null = True)
-    especie = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True)
-    nombre_raza = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True)
+    especie = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True, related_name='Especie del animal+')
+    nombre_raza = models.ForeignKey('Animal', on_delete = models.SET_NULL, null = True, related_name='Raza del animal+')
 
     def __str__(self):
         return f'{self.nombre_animal} {self.last_name}'

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de animales (perros, gatos, etc){% endblock %}
+
+{% block content %}
+    <h1>Catálogo de la protectora</h1>
+    
+    <ul>
+    {% for animal in animales %}
+        <li>{{animal.especie}} {{animal.nombre_raza}} 
+    {% endfor %}
+    </ul>
+
+{% endblock %}
