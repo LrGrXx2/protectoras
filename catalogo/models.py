@@ -35,7 +35,7 @@ BOOL_CHOICES = ((True, 'Si'), (False, 'No'))
 
 class Rescate(models.Model):
     nombre_animal = models.CharField("Nombre animal", max_length = 200)
-    adoptado = models.BooleanField("En adopción", choices=BOOL_CHOICES)
+    adoptado = models.BooleanField("Adoptado", choices=BOOL_CHOICES)
     descripcion_rescate = models.CharField("Descripción de este animal", max_length = 500, blank = True)
 
     # Relaciones
