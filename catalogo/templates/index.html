@@ -10,8 +10,8 @@
 <ul>
   {% for rescate in rescates %}
   <li>{{rescate.nombre_animal}}
-      {%if rescate.nombre_raza %}
-      ({{rescate.nombre_raza}})
+      {%if rescate.especie %}
+      ({{rescate.especie}})
       {% endif %}
 
   </li>
