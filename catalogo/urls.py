@@ -1,5 +1,5 @@
 from django.urls import path
-from catalogo.views import ProtectorasListView, RescatesListView, SearchResultsListView, \
+from catalogo.views import EliminarAnimal, EliminarProtectora, EliminarRescate, ProtectorasListView, RescatesListView, SearchResultsListView, \
     crear_animal, crear_protectora, crear_rescate, \
     todas_protectoras, todos_animales, todos_rescates, \
     ModificarProtectora, ModificarAnimal, ModificarRescate
@@ -18,4 +18,8 @@ urlpatterns = [
     path('protectora/modificar/<int:pk>', ModificarProtectora.as_view(), name='modificar_protectora'),
     path('animal/modificar/<int:pk>', ModificarAnimal.as_view(), name='modificar_animal'),
     path('rescate/modificar/<int:pk>', ModificarRescate.as_view(), name='modificar_rescate'),
+
+    path('protectora/eliminar/<int:pk>', EliminarProtectora.as_view(), name='eliminar_protectora'),
+    path('animal/eliminar/<int:pk>', EliminarAnimal.as_view(), name='eliminar_animal'),
+    path('rescate/eliminar/<int:pk>', EliminarRescate.as_view(), name='eliminar_rescate'),
 ]

@@ -17,7 +17,7 @@ def indice(request):
     # últimos 5 rescates del catálogo
     rescates = Rescate.objects.all().order_by('-id')[:5]
 
-    datos['libros'] = rescates
+    datos['rescates'] = rescates
 
     return render(request, 'index.html',
         context=datos)
@@ -89,11 +89,13 @@ class AnimalesListView(generic.ListView):
     '''Vista genérica para nuestro listado de animales'''
     model = Animal
     paginate_by = 15
+    queryset = Animal.objects.all().order_by('nombre_raza', 'especie')
 
 class RescatesListView(generic.ListView):
     '''Vista genérica para nuestro listado de rescates'''
     model = Rescate
     paginate_by = 15
+    queryset = Rescate.objects.all().order_by('nombre_animal', 'especie')
 
 # -----------
 
