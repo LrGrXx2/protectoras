@@ -2,6 +2,16 @@
 
 {% block title %}Protectora+ LauraGarcia {% endblock %}
 
+{% block extracss%}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>
+<style>
+  #mapa { height: 400px ;}
+</style>
+{% endblock %}
+
+
 {% block content %}
 <center><h1>Índice del catálogo de datos</h1></center>
 <hr>
@@ -19,8 +29,13 @@
   {% endfor %}
 </ul>
 
+<!--mapa-->
+<hr>
+<div id="mapa"></div>
 
+<!---->
 
+<!--formulario-->
 <h2 class="mt-4">Formulario de contacto</h2>
 <div>
   <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{form_id}"
@@ -53,4 +68,26 @@
 <br>
 <br>
 <br>
+{% for protectora in protectoras %}
+{{protectora.coordenadas}}  {{protectora.nombre_protectora}};
+{% endfor %}
+{% endblock %}
+
+<!--js mapa-->
+{% block extrajs %}
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script>
+      var mimapa = L.map('mapa').setView([{{coordenadas}}], 13);
+
+      L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+      maxZoom: 18
+      }).addTo(mimapa);
+      {% for protectora in protectoras %}
+        L.marker([{{protectora.coordenadas}}]).addTo(mimapa).bindPopup("{{protectora.nombre_protectora}}");
+      {% endfor %}
+   </script>
 {% endblock %}

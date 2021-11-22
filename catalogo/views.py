@@ -17,7 +17,10 @@ def indice(request):
     # últimos 5 rescates del catálogo
     rescates = Rescate.objects.all().order_by('-id')[:5]
 
+    protectoras = Protectora.objects.all()
     datos['rescates'] = rescates
+    datos['coordenadas'] = '41.6447628,-0.9253731'
+    datos['protectoras'] = protectoras
 
     return render(request, 'index.html',
         context=datos)
