@@ -11,3 +11,14 @@ de esta forma quedan unidas las tres tablas.
 En la página principal vemos un menú desplegable funcional, debajo un mapa en el que se van poniendo
 los puntos de las protectoras automáticamente al crear la Protectora, este mapa podemos aumentarlo, 
 disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
+
+¿Cómo lo instalo y hago funcionar?
+1- nos posicionamos donde queramos tener la capeta en la cmd (con cd)
+2- copiamos el enlace del repositorio git donde está el trabajo
+3- en la cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
+4- nos posicionamos dentro del proyecto en la cmd (con cd)
+5- creamos entorno virtual (py -m venv env)
+6- activamos el entorno virtual (env\Scripts\activate.bat)
+7- dentro del entorno instalamos Django (py -m pip install Django)
+8- dentro del entorno instamos debugtoolbar (pip install dejango-debug-toolbar)
+X- py manage.py runserver (para cerrarlo: Ctrl + c)
