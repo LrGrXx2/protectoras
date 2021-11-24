@@ -15,6 +15,7 @@ disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 
 
 ## ¿Cómo lo instalo y hago funcionar?
+(ATENCIÓN) Deberemos tener en nuestro ordenador la aplicaciones "GitBash" u otra del estilo para que la cmd reconozca los comandos de Git.
 1. nos posicionamos donde queramos tener la capeta en la cmd (con cd)
 2. copiamos el enlace del repositorio git donde está el trabajo
 3. en la cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
