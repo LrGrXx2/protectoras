@@ -1,5 +1,5 @@
 # Protectoras+
-##Descripción
+## Descripción
 Web con base de datos que recopila información de varias protectoras aragonesas.
 Consta de tres clases (Protectora, Animal y Rescate) con sus respectivos elementos.
 La clase Rescate tinene dos llaves foráneas, una de Protectora y otra de Animal,
@@ -14,7 +14,7 @@ los puntos de las protectoras automáticamente al crear la Protectora, este mapa
 disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 
 
-##¿Cómo lo instalo y hago funcionar?
+## ¿Cómo lo instalo y hago funcionar?
 1. nos posicionamos donde queramos tener la capeta en la cmd (con cd)
 2. copiamos el enlace del repositorio git donde está el trabajo
 3. en la cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
