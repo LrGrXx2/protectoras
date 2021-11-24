@@ -12,6 +12,7 @@ En la página principal vemos un menú desplegable funcional, debajo un mapa en 
 los puntos de las protectoras automáticamente al crear la Protectora, este mapa podemos aumentarlo, 
 disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 
+
 ¿Cómo lo instalo y hago funcionar?
 1. nos posicionamos donde queramos tener la capeta en la cmd (con cd)
 2. copiamos el enlace del repositorio git donde está el trabajo
