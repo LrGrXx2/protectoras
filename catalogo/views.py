@@ -6,6 +6,7 @@ from django.views import generic
 from catalogo.forms import ProtectoraForm, AnimalForm, RescateForm
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import Q
 
 # Create your views here.
 
@@ -25,7 +26,7 @@ def indice(request):
     return render(request, 'index.html',
         context=datos)
 
-# -----------
+# ----------- TODOS LOS DATOS
 
 def todas_protectoras(request):
     protectoras = Protectora.objects.all().order_by('nombre_protectora')
@@ -39,7 +40,7 @@ def todos_rescates(request):
     rescates = Rescate.objects.all().order_by('nombre_animal')
     return render(request, 'todos_rescates.html', context = {'rescates':rescates})
 
-# -----------
+# ----------- CREACIONES
 
 def crear_protectora(request):
     if request.method == 'POST':
@@ -80,7 +81,7 @@ def crear_rescate(request):
     return render(request, 'crear_rescate.html', 
         context=datos)
 
-# -----------
+# ----------- LISTVIEWS
 
 class ProtectorasListView(generic.ListView):
     '''Vista genérica para nuestro listado de protectoras'''
@@ -100,7 +101,7 @@ class RescatesListView(generic.ListView):
     paginate_by = 15
     queryset = Rescate.objects.all().order_by('nombre_animal', 'especie')
 
-# -----------
+# ----------- MODIFICACIONES
 
 class ModificarProtectora(SuccessMessageMixin, generic.UpdateView):
     model = Protectora
@@ -123,24 +124,20 @@ class ModificarRescate(SuccessMessageMixin, generic.UpdateView):
     success_url = '/'
     success_message = "%(nombre_animal)s se ha modificado correctamente"
 
-# -----------
+# ----------- BUSCAR
 
 class SearchResultsListView(generic.ListView):
     model = Rescate
-    context_object_name = 'rescates'
-    template_name = 'search_results.html'
-    paginate_by = 15
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['query'] = self.request.GET.get('q')
-        return context
+    context_object_name = 'rescate_list'
+    # template_name = 'rescates/search_results.html'
     def get_queryset(self): # new
+        # buscar en nombre de animal y en especie
         query = self.request.GET.get('q')
-        if query:
-            return Rescate.objects.filter(nombre_rescate__icontains=query)
-        return []  # cuando entramos a buscar o si no se introduce nada
+        q1 = Q(nombre_animal__icontains = query)
+        q2 = Q(especie__especie__icontains=query)
+        return Rescate.objects.filter(q1 | q2)
 
-# -----------
+# ----------- ELIMINACIONES
 
 class EliminarProtectora(generic.DeleteView):
     model = Protectora
