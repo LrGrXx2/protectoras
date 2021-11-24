@@ -1,4 +1,4 @@
-# protectoras
+# Protectoras+
 Web con base de datos que recopila información de varias protectoras aragonesas.
 Consta de tres clases (Protectora, Animal y Rescate) con sus respectivos elementos.
 La clase Rescate tinene dos llaves foráneas, una de Protectora y otra de Animal,
