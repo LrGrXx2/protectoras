@@ -10,30 +10,33 @@ de esta forma quedan unidas las tres tablas.
 - RESCATE: nombre_animal, adoptado (booleano), descripcion_rescate, *nombre_protectora, *especie
  
 En la página principal vemos un menú desplegable funcional, debajo un mapa en el que se van poniendo
-los puntos de las protectoras automáticamente al crear la Protectora, este mapa podemos aumentarlo, 
-disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
+los puntos de las protectoras automáticamente al crear una Protectora, este mapa podemos aumentarlo, 
+disminuirlo y movernos por el. Abajo del todo hay un buscador de Rescates, donde podemos buscar los elementos por Rescate(nombre_animal) o por Rescate(especie).
 
 
 ## ¿Cómo lo instalo y hago funcionar?
 ### FORMA1 (con comandos Git)
-(ATENCIÓN) Deberemos tener en nuestro ordenador la aplicaciones "GitBash" u otra del estilo para que la cmd reconozca los comandos de Git.
-1. nos posicionamos donde queramos tener la capeta en la cmd (con cd)
-2. copiamos el enlace del repositorio git donde está el trabajo
-3. en la cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
-4. nos posicionamos dentro del proyecto en la cmd (con cd)
-5. creamos entorno virtual (py -m venv env)
-6. activamos el entorno virtual (env\Scripts\activate.bat)
-7. dentro del entorno instalamos Django (py -m pip install Django)
-8. dentro del entorno instamos debugtoolbar (pip install django-debug-toolbar)
-9. RDFGYFUBYTJYIUG
-10. py manage.py runserver (para cerrarlo: Ctrl + c)
+(ATENCIÓN) Deberemos tener en nuestro ordenador la aplicaciones "GitBash" u otra del estilo para que el cmd reconozca los comandos de Git.
+1. Nos posicionamos donde queramos tener la capeta en el cmd (con cd)
+2. Copiamos el enlace del repositorio git donde está el trabajo
+3. En el cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
+4. Nos posicionamos dentro del proyecto en el cmd (con cd)
+5. Creamos entorno virtual (py -m venv env)
+6. Activamos el entorno virtual (env\Scripts\activate.bat)
+7. Dentro del entorno instalamos Django (py -m pip install Django)
+8. Dentro del entorno instamos debugtoolbar (pip install django-debug-toolbar)
+9. Dentro del entorno: py manage.py runserver
+10. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
+11. Cuando queramos pararlo: Ctrl + c (en el cmd)
 
 ### FORMA2
 1. En el repositorio Git, dentro de CODE, descargar ZIP
-2. nos posicionamos dentro del proyecto en la cmd (con cd)
-3. creamos entorno virtual (py -m venv env)
-4. activamos el entorno virtual (env\Scripts\activate.bat)
-5. dentro del entorno instalamos Django (py -m pip install Django)
-6. dentro del entorno instamos debugtoolbar (pip install dejango-debug-toolbar)
-7. jdrfhthdrhtb
-8. py manage.py runserver (para cerrarlo: Ctrl + c)
+2. Descomprimimos en el lugar donde queramos ponerlo
+3. Nos posicionamos dentro del proyecto en el cmd (con cd)
+4. Creamos entorno virtual (py -m venv env)
+5. Activamos el entorno virtual (env\Scripts\activate.bat)
+6. Dentro del entorno instalamos Django (py -m pip install Django)
+7. Dentro del entorno instalamos debugtoolbar (pip install django-debug-toolbar)
+8. Dentro del entorno: py manage.py runserver
+9. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
+10.  Cuando queramos pararlo: Ctrl + c (en el cmd)
