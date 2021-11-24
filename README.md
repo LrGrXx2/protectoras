@@ -24,7 +24,7 @@ disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 5. creamos entorno virtual (py -m venv env)
 6. activamos el entorno virtual (env\Scripts\activate.bat)
 7. dentro del entorno instalamos Django (py -m pip install Django)
-8. dentro del entorno instamos debugtoolbar (pip install dejango-debug-toolbar)
+8. dentro del entorno instamos debugtoolbar (pip install django-debug-toolbar)
 9. RDFGYFUBYTJYIUG
 10. py manage.py runserver (para cerrarlo: Ctrl + c)
 
