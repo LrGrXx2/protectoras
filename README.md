@@ -15,6 +15,7 @@ disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 
 
 ## ¿Cómo lo instalo y hago funcionar?
+### FORMA1 (con comandos Git)
 (ATENCIÓN) Deberemos tener en nuestro ordenador la aplicaciones "GitBash" u otra del estilo para que la cmd reconozca los comandos de Git.
 1. nos posicionamos donde queramos tener la capeta en la cmd (con cd)
 2. copiamos el enlace del repositorio git donde está el trabajo
@@ -24,4 +25,15 @@ disminuirlo y movernos por el. Abajo del todo está un buscador de Rescates.
 6. activamos el entorno virtual (env\Scripts\activate.bat)
 7. dentro del entorno instalamos Django (py -m pip install Django)
 8. dentro del entorno instamos debugtoolbar (pip install dejango-debug-toolbar)
+9. RDFGYFUBYTJYIUG
 10. py manage.py runserver (para cerrarlo: Ctrl + c)
+
+### FORMA2
+1. En el repositorio Git, dentro de CODE, descargar ZIP
+2. nos posicionamos dentro del proyecto en la cmd (con cd)
+3. creamos entorno virtual (py -m venv env)
+4. activamos el entorno virtual (env\Scripts\activate.bat)
+5. dentro del entorno instalamos Django (py -m pip install Django)
+6. dentro del entorno instamos debugtoolbar (pip install dejango-debug-toolbar)
+7. jdrfhthdrhtb
+8. py manage.py runserver (para cerrarlo: Ctrl + c)
