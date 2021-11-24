@@ -15,25 +15,25 @@ disminuirlo y movernos por el. Abajo del todo hay un buscador de Rescates, donde
 
 
 ## ¿Cómo lo instalo y hago funcionar?
-### FORMA1 (con comandos Git)
-(ATENCIÓN) Deberemos tener en nuestro ordenador la aplicaciones "GitBash" u otra del estilo para que el cmd reconozca los comandos de Git.
+### FORMA1 (con Git)
+(ATENCIÓN) Deberemos tener en nuestro ordenador la aplicación "GitBash" u otra del estilo para que el cmd reconozca los comandos de Git.
 1. Nos posicionamos donde queramos tener la capeta en el cmd (con cd)
 2. Copiamos el enlace del repositorio git donde está el trabajo
 3. En el cmd escribimos: git clone https://github.com/LrGrXx2/protectoras.git (enlace del repo)
 4. Nos posicionamos dentro del proyecto en el cmd (con cd)
-5. Creamos entorno virtual (py -m venv env)
+5. Creamos el entorno virtual (py -m venv env)
 6. Activamos el entorno virtual (env\Scripts\activate.bat)
 7. Dentro del entorno instalamos Django (py -m pip install Django)
-8. Dentro del entorno instamos debugtoolbar (pip install django-debug-toolbar)
+8. Dentro del entorno instalamos debugtoolbar (pip install django-debug-toolbar)
 9. Dentro del entorno: py manage.py runserver
 10. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
 11. Cuando queramos pararlo: Ctrl + c (en el cmd)
 
 ### FORMA2
-1. En el repositorio Git, dentro de CODE, descargar ZIP
+1. En el repositorio Git, dentro de CODE (botón verde), descargar ZIP
 2. Descomprimimos en el lugar donde queramos ponerlo
 3. Nos posicionamos dentro del proyecto en el cmd (con cd)
-4. Creamos entorno virtual (py -m venv env)
+4. Creamos el entorno virtual (py -m venv env)
 5. Activamos el entorno virtual (env\Scripts\activate.bat)
 6. Dentro del entorno instalamos Django (py -m pip install Django)
 7. Dentro del entorno instalamos debugtoolbar (pip install django-debug-toolbar)
