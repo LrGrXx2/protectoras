@@ -11,8 +11,11 @@
             <br>
             <p align="justify">{{rescate.descripcion_rescate}}
             <br>
-            Este animal está en: <b>{{rescate.nombre_protectora}}</b></p>
+            <b>Información general de la raza:</b> {{rescate.especie.descripcion_animal}}
+            <br>
+            <b>Ubicado/a en:</b> {{rescate.nombre_protectora}}</p>
         </li>  
+        <hr>
 
     {% endfor %}
     </ul>
