@@ -5,7 +5,9 @@ from catalogo.models import Protectora
 from django.views import generic
 from catalogo.forms import ProtectoraForm, AnimalForm, RescateForm
 from django.contrib import messages
+from django.views.generic.edit import UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 # Create your views here.
@@ -41,7 +43,7 @@ def todos_rescates(request):
     return render(request, 'todos_rescates.html', context = {'rescates':rescates})
 
 # ----------- CREACIONES
-
+@login_required
 def crear_protectora(request):
     if request.method == 'POST':
         form = ProtectoraForm(request.POST)
@@ -55,6 +57,7 @@ def crear_protectora(request):
     return render(request, 'crear_protectora.html', 
         context=datos)
 
+@login_required
 def crear_animal(request):
     if request.method == 'POST':
         form = AnimalForm(request.POST)
@@ -68,6 +71,7 @@ def crear_animal(request):
     return render(request, 'crear_animal.html', 
         context=datos)
 
+@login_required
 def crear_rescate(request):
     if request.method == 'POST':
         form = RescateForm(request.POST)
@@ -86,30 +90,31 @@ def crear_rescate(request):
 class ProtectorasListView(generic.ListView):
     '''Vista genérica para nuestro listado de protectoras'''
     model = Protectora
-    paginate_by = 15
+    #paginate_by = 15
     queryset = Protectora.objects.all().order_by('nombre_protectora', 'ciudad')
 
 class AnimalesListView(generic.ListView):
     '''Vista genérica para nuestro listado de animales'''
     model = Animal
-    paginate_by = 15
+    #paginate_by = 15
     queryset = Animal.objects.all().order_by('nombre_raza', 'especie')
 
 class RescatesListView(generic.ListView):
     '''Vista genérica para nuestro listado de rescates'''
     model = Rescate
-    paginate_by = 15
+    #paginate_by = 15
     queryset = Rescate.objects.all().order_by('nombre_animal', 'especie')
 
 # ----------- MODIFICACIONES
-
-class ModificarProtectora(SuccessMessageMixin, generic.UpdateView):
+@login_required
+class ModificarProtectora(SuccessMessageMixin,UpdateView):
     model = Protectora
     fields = '__all__'
     template_name = 'modificar_protectora.html'
     success_url = '/'
     success_message = "%(nombre_protectora)s se ha modificado correctamente"
 
+@login_required
 class ModificarAnimal(SuccessMessageMixin, generic.UpdateView):
     model = Animal
     fields = '__all__'
@@ -117,6 +122,7 @@ class ModificarAnimal(SuccessMessageMixin, generic.UpdateView):
     success_url = '/'
     success_message = "%(esepecie)s, %(nombre_raza)s se ha modificado correctamente"
 
+@login_required
 class ModificarRescate(SuccessMessageMixin, generic.UpdateView):
     model = Rescate
     fields = '__all__'
@@ -138,7 +144,7 @@ class SearchResultsListView(generic.ListView):
         return Rescate.objects.filter(q1 | q2)
 
 # ----------- ELIMINACIONES
-
+@login_required
 class EliminarProtectora(generic.DeleteView):
     model = Protectora
     success_url = '/catalago/protectoras' #reverse('listado_protectoras')
@@ -149,6 +155,7 @@ class EliminarProtectora(generic.DeleteView):
         return super(EliminarProtectora, self).delete(
             request, *args, **kwargs)
 
+@login_required
 class EliminarAnimal(generic.DeleteView):
     model = Animal
     success_url = '/catalago/animales' #reverse('listado_animales')
@@ -159,6 +166,7 @@ class EliminarAnimal(generic.DeleteView):
         return super(EliminarAnimal, self).delete(
             request, *args, **kwargs)
 
+@login_required
 class EliminarRescate(generic.DeleteView):
     model = Rescate
     success_url = '/catalago/rescates' #reverse('listado_rescates')

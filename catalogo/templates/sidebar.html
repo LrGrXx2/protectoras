@@ -29,6 +29,7 @@
                 </div>
             </li>
             <!---------------------------------------------------------------------------->
+            {% if user.is_authenticated %}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-expanded="false">
@@ -39,10 +40,59 @@
                     <a class="dropdown-item" href="http://localhost:8000/catalogo/animal/crear">Crear animal</a>
                     <a class="dropdown-item" href="http://localhost:8000/catalogo/rescate/crear">Crear rescate</a>
                     <div class="dropdown-divider"></div>
-                    <!--<a class="dropdown-item" href="#">Something else here</a>-->
                 </div>
             </li>
+            {% endif %}
             <!---------------------------------------------------------------------------->
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    Eliminar elemento
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/protectora/eliminar">Eliminar protectora</a>
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/animal/eliminar">Eliminar animal</a>
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/rescate/eliminar">Eliminar rescate</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            {% endif %}
+            <!---------------------------------------------------------------------------->
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-expanded="false">
+                    Modificar elemento
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/protectora/modificar">Modificar protectora</a>
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/animal/modificar">Modificar animal</a>
+                    <a class="dropdown-item" href="http://localhost:8000/catalogo/rescate/modificar">Modificar rescate</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </li>
+            {% endif %}
+            <!---------------------------------------------------------------------------->
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+                aria-expanded="false">
+                Tu cuenta
+                <!--{{user.username}}-->
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+              </div>
+              {% else %}
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Accede a tu cuenta</a>
+            </li>
+            {% endif %}
+
+
+
 <!--         <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-expanded="false">

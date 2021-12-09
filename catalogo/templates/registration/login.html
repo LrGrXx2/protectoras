@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Error, vuelva a intentarlo.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>No tienes permiso para acceder a esta página.</p>
+    {% else %}
+      <p>Accede a tu cuenta para ver esta página.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td> 
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="Iniciar sesión" />
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+<!--
+  {# Assumes you setup the password_reset view in your URLconf #}
+  <p><a href="{% url 'password_reset' %}">¿No recuerdas la contraseña?</a></p>-->
+
+{% endblock %}

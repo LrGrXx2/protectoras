@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de animales{% endblock %}
+
+{% block content %}
+    <h1>Animales resgistrados</h1>
+    
+    <ul>
+    {% for animal in object_list %}
+    <li>
+      {{animal.especie}}, {{animal.nombre_raza}}:
+    <br>
+    {{animal.descripcion_animal}} </li>
+    {% endfor %}
+    </ul>
+
+{% endblock%}
