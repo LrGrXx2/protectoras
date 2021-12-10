@@ -13,6 +13,8 @@ En la página principal vemos un menú desplegable funcional, debajo un mapa en 
 los puntos de las protectoras automáticamente al crear una Protectora, este mapa podemos aumentarlo, 
 disminuirlo y movernos por el. Abajo del todo hay un buscador de Rescates, donde podemos buscar los elementos por Rescate(nombre_animal) o por Rescate(especie).
 
+Nombre de usuario para entrar a admin: root
+Contraseña de admin: root
 
 ## ¿Cómo lo instalo y hago funcionar?
 ### FORMA1 (Windows)
