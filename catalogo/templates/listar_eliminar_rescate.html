@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Nombre animal</th>
+      <th scope="col">Descripcion rescate</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% if rescates %}
+  <tbody>
+    {% for rescate in rescates %}
+    <tr>
+      <td>{{rescate.nombre_animal}}</td>
+      <td align="justify">{{rescate.descripcion_rescate}}</td>
+      <td><a id="modify-button" class="btn btn-danger" href="{% url 'eliminar_rescate' rescate.id %}">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% else %}
+  <p>No hay rescates en la base de datos.</p>
+{% endif %}
+</table>
+
+{% endblock %}

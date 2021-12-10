@@ -3,14 +3,15 @@
 {% block title %}Listado de animales{% endblock %}
 
 {% block content %}
-    <h1>Animales resgistrados</h1>
-    
+    <h1>Registro de razas</h1>
+    <br>
     <ul>
     {% for animal in object_list %}
     <li>
-      {{animal.especie}}, {{animal.nombre_raza}}:
+      <b>{{animal.nombre_raza}}</b> ({{animal.especie}}):
     <br>
     {{animal.descripcion_animal}} </li>
+    <hr>
     {% endfor %}
     </ul>
 

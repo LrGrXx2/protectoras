@@ -4,12 +4,16 @@
 
 {% block content %}
     <h1>Protectoras resgistradas</h1>
-    
+    <br>
     <ul>
     {% for protectora in object_list %}
     <li>
-      {{protectora.nombre_protectora}}  ➟  {{protectora.direccion}}, {{protectora.ciudad}} </li>
+      <b>{{protectora.nombre_protectora}}</b> ➟<br>  
+      Ubicación: {{protectora.direccion}}, {{protectora.ciudad}} 
+      <hr>
+    </li>
     {% endfor %}
+    
     </ul>
 
 {% endblock%}

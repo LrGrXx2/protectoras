@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Nombre protectora</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Coordenadas</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {% if protectoras %}
+  <tbody>
+    {% for protectora in protectoras %}
+    <tr>
+      <td>{{protectora.nombre_protectora}}</td>
+      <td>{{protectora.direccion}}</td>
+      <td>{{protectora.ciudad}}</td>
+      <td align="justify">{{protectora.coordenadas}}</td>
+      <td><a id="modify-button" class="btn btn-warning" href="{% url 'modificar_protectora' protectora.id %}">Modificar</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% else %}
+  <p>No hay protectoras en la base de datos.</p>
+{% endif %}
+</table>
+
+{% endblock %}

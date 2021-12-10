@@ -7,8 +7,10 @@ from catalogo.forms import ProtectoraForm, AnimalForm, RescateForm
 from django.contrib import messages
 from django.views.generic.edit import UpdateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.urls import reverse
 
 # Create your views here.
 
@@ -106,15 +108,14 @@ class RescatesListView(generic.ListView):
     queryset = Rescate.objects.all().order_by('nombre_animal', 'especie')
 
 # ----------- MODIFICACIONES
-@login_required
-class ModificarProtectora(SuccessMessageMixin,UpdateView):
+
+class ModificarProtectora(LoginRequiredMixin, SuccessMessageMixin,UpdateView):
     model = Protectora
     fields = '__all__'
     template_name = 'modificar_protectora.html'
     success_url = '/'
     success_message = "%(nombre_protectora)s se ha modificado correctamente"
 
-@login_required
 class ModificarAnimal(SuccessMessageMixin, generic.UpdateView):
     model = Animal
     fields = '__all__'
@@ -122,7 +123,6 @@ class ModificarAnimal(SuccessMessageMixin, generic.UpdateView):
     success_url = '/'
     success_message = "%(esepecie)s, %(nombre_raza)s se ha modificado correctamente"
 
-@login_required
 class ModificarRescate(SuccessMessageMixin, generic.UpdateView):
     model = Rescate
     fields = '__all__'
@@ -144,10 +144,11 @@ class SearchResultsListView(generic.ListView):
         return Rescate.objects.filter(q1 | q2)
 
 # ----------- ELIMINACIONES
-@login_required
+
 class EliminarProtectora(generic.DeleteView):
     model = Protectora
-    success_url = '/catalago/protectoras' #reverse('listado_protectoras')
+    #success_url = '/catalago/protectoras' #reverse('listado_protectoras')
+    success_url = '/'
     success_message = "La protectora se ha borrado correctamente"
     template_name = 'protectora_confirmar_borrado.html'
     def delete(self, request, *args, **kwargs):
@@ -155,10 +156,10 @@ class EliminarProtectora(generic.DeleteView):
         return super(EliminarProtectora, self).delete(
             request, *args, **kwargs)
 
-@login_required
 class EliminarAnimal(generic.DeleteView):
     model = Animal
-    success_url = '/catalago/animales' #reverse('listado_animales')
+    #success_url = '/catalago/animales' #reverse('listado_animales')
+    success_url = '/'
     success_message = "El animal se ha borrado correctamente"
     template_name = 'animal_confirmar_borrado.html'
     def delete(self, request, *args, **kwargs):
@@ -166,10 +167,10 @@ class EliminarAnimal(generic.DeleteView):
         return super(EliminarAnimal, self).delete(
             request, *args, **kwargs)
 
-@login_required
 class EliminarRescate(generic.DeleteView):
     model = Rescate
-    success_url = '/catalago/rescates' #reverse('listado_rescates')
+    #success_url = '/catalago/rescates' #reverse('listado_rescates')
+    success_url = '/'
     success_message = "El rescate se ha borrado correctamente"
     template_name = 'rescate_confirmar_borrado.html'
     def delete(self, request, *args, **kwargs):
@@ -178,3 +179,60 @@ class EliminarRescate(generic.DeleteView):
             request, *args, **kwargs)
 
 # -----------
+
+@login_required
+def protectora_modif(request):
+    '''
+    Lista para modificar protectora en concreto
+    '''
+    lista_protectoras = Protectora.objects.all() 
+    context = {'protectoras': lista_protectoras}
+    return render(request, 'listar_modificar_protectora.html', context)
+
+@login_required
+def protectora_elim(request):
+    '''
+    Lista para eliminar protectora en concreto
+    '''
+    lista_protectoras = Protectora.objects.all() 
+    context = {'protectoras': lista_protectoras}
+    return render(request, 'listar_eliminar_protectora.html', context)
+
+    
+@login_required
+def animal_modif(request):
+    '''
+    Lista para modificar animal en concreto
+    '''
+    lista_animales = Animal.objects.all() 
+    context = {'animales': lista_animales}
+    return render(request, 'listar_modificar_animal.html', context)
+
+@login_required
+def animal_elim(request):
+    '''
+    Lista para eliminar animal en concreto
+    '''
+    lista_animales = Animal.objects.all() 
+    context = {'animales': lista_animales}
+    return render(request, 'listar_eliminar_animal.html', context)
+
+    
+@login_required
+def rescate_modif(request):
+    '''
+    Lista para modificar rescate en concreto
+    '''
+    lista_rescates = Rescate.objects.all() 
+    context = {'rescates': lista_rescates}
+    return render(request, 'listar_modificar_rescate.html', context)
+    
+@login_required
+def rescate_elim(request):
+    '''
+    Lista para eliminar protectora en concreto
+    '''
+    lista_rescates = Rescate.objects.all() 
+    context = {'rescates': lista_rescates}
+    return render(request, 'listar_eliminar_rescate.html', context)
+
