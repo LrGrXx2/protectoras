@@ -28,9 +28,10 @@ Contraseña de admin: root
 6. Activamos el entorno virtual (env\Scripts\activate.bat)
 7. Dentro del entorno instalamos Django (py -m pip install Django)
 8. Dentro del entorno instalamos debugtoolbar (pip install django-debug-toolbar)
-9. Dentro del entorno: py manage.py runserver
-10. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
-11. Cuando queramos pararlo: Ctrl + c (en el cmd)
+9. Creamos un superuser (python manage.py createsuperuser)
+10. Dentro del entorno: py manage.py runserver
+11. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
+12. Cuando queramos pararlo: Ctrl + c (en el cmd)
 
 ### FORMA2 (Linux/Mac)
 (ATENCIÓN) Deberemos tener en nuestro ordenador la aplicación "GitBash" u otra del estilo para que el cmd reconozca los comandos de Git, y Python.
@@ -42,7 +43,8 @@ Contraseña de admin: root
 6. Activamos el entorno virtual (source tutorial-env/bin/activate)
 7. Dentro del entorno instalamos Django (pip install Django)
 8. Dentro del entorno instalamos debugtoolbar (pip install django-debug-toolbar)
-9. Dentro del entorno: py manage.py runserver
-10. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
-11. Cuando queramos pararlo: Ctrl + c (en el cmd)
+9. Creamos un superuser (python manage.py createsuperuser)
+10. Dentro del entorno: py manage.py runserver
+11. En google buscamos: http://localhost:8000/ (número indicado al ejecutar el runserver (Starting development server at http://127.0.0.1:8000/) ese es el 8000)
+12. Cuando queramos pararlo: Ctrl + c (en el cmd)
 
